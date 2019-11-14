@@ -39,7 +39,7 @@
 }
 
 - (IBAction)bt_reinitialize_Click:(id)sender {
-    [_ai_progress startAnimating];
+    [self.ai_progress startAnimating];
     
     NSString *sqlite_sync_url = _tb_syncUrl.text;
     [[NSUserDefaults standardUserDefaults] setObject:sqlite_sync_url forKey:@"sqlite_sync_url"];
@@ -47,7 +47,7 @@
     SQLiteSync *sqlite_sync = [[SQLiteSync alloc] initWithDbFileName:@"sqlitesync.db" serverURL:sqlite_sync_url];
     
     [sqlite_sync initializeSubscriber:[self subscriberId] onFinish:^(NSError * _Nullable error) {
-        [_ai_progress stopAnimating];
+        [self.ai_progress stopAnimating];
         
         [self pickerTables_setDataSource];
         
@@ -69,7 +69,7 @@
     SQLiteSync *sqlite_sync = [[SQLiteSync alloc] initWithDbFileName:@"sqlitesync.db" serverURL:sqlite_sync_url];
     
     [sqlite_sync synchronizeSubscriber:[self subscriberId] onFinish:^(NSError * _Nullable error) {
-        [_ai_progress stopAnimating];
+        [self.ai_progress stopAnimating];
         
         if(error){
             [self showMessage:[NSString stringWithFormat:@"Data synchronization finished with error: \n%@", [[error.userInfo allValues] firstObject]]];

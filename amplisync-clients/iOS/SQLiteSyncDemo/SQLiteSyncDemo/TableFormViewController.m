@@ -65,7 +65,7 @@
         [builder appendString:@");"];
     }
     
-    BOOL success;
+    BOOL success = FALSE;
     sqlite3 *db;
     sqlite3_stmt *stmt = nil;
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

@@ -15,7 +15,6 @@
 		084A31BE1E6D5E0D00982453 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 084A31BC1E6D5E0D00982453 /* LaunchScreen.storyboard */; };
 		084A31D01E6D5E5200982453 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 084A31C81E6D5E5200982453 /* XMLDictionary.m */; };
 		084A31D71E6D5EA300982453 /* SQLiteSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 084A31D61E6D5EA300982453 /* SQLiteSync.m */; };
-		084A31EF1E6D613500982453 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084A31D91E6D613500982453 /* Info.plist */; };
 		084A31F01E6D613500982453 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 084A31DC1E6D613500982453 /* JSONModel.m */; };
 		084A31F11E6D613500982453 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 084A31DE1E6D613500982453 /* JSONModelClassProperty.m */; };
 		084A31F21E6D613500982453 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 084A31E01E6D613500982453 /* JSONModelError.m */; };
@@ -46,7 +45,6 @@
 		084A31C81E6D5E5200982453 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		084A31D51E6D5EA300982453 /* SQLiteSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteSync.h; sourceTree = "<group>"; };
 		084A31D61E6D5EA300982453 /* SQLiteSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteSync.m; sourceTree = "<group>"; };
-		084A31D91E6D613500982453 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		084A31DB1E6D613500982453 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
 		084A31DC1E6D613500982453 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
 		084A31DD1E6D613500982453 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 		084A31D81E6D613500982453 /* JSONModel */ = {
 			isa = PBXGroup;
 			children = (
-				084A31D91E6D613500982453 /* Info.plist */,
 				084A31DA1E6D613500982453 /* JSONModel */,
 				084A31E11E6D613500982453 /* JSONModelLib.h */,
 				084A31E21E6D613500982453 /* JSONModelNetworking */,
@@ -242,7 +239,7 @@
 		084A31A31E6D5E0D00982453 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "sqlite-sync.com";
 				TargetAttributes = {
 					084A31AA1E6D5E0D00982453 = {
@@ -254,7 +251,7 @@
 			};
 			buildConfigurationList = 084A31A61E6D5E0D00982453 /* Build configuration list for PBXProject "SQLiteSyncDemo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -275,7 +272,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				084A31EF1E6D613500982453 /* Info.plist in Resources */,
 				084A31BE1E6D5E0D00982453 /* LaunchScreen.storyboard in Resources */,
 				084A31BB1E6D5E0D00982453 /* Assets.xcassets in Resources */,
 				084A31B91E6D5E0D00982453 /* Main.storyboard in Resources */,
@@ -335,20 +331,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -383,20 +389,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
