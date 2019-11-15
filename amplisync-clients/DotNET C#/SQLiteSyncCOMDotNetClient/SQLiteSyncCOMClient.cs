@@ -31,11 +31,65 @@ namespace SQLiteSyncCOMCsharp
             request.AddHeader("Accept", "*/*");
             IRestResponse response = wsClient.Execute(request);
             Dictionary<string, string> dbSchema = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
-            
-            //we need to sort by key
-            var tmp = dbSchema.OrderBy(key => key.Key);
-            var dbSchemaSorted = tmp.ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Value);
 
+            if (dbSchema != null)
+            {
+                //we need to sort by key
+                var tmp = dbSchema.OrderBy(key => key.Key);
+                var dbSchemaSorted = tmp.ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Value);
+
+                using (SQLiteConnection conn = new SQLiteConnection(this.connString))
+                {
+                    using (SQLiteCommand cmd = new SQLiteCommand())
+                    {
+                        cmd.Connection = conn;
+                        conn.Open();
+
+                        SQLiteHelper sh = new SQLiteHelper(cmd);
+
+                        sh.BeginTransaction();
+
+                        try
+                        {
+                            foreach (KeyValuePair<string, string> entry in dbSchemaSorted)
+                                if (!entry.Key.StartsWith("00000"))
+                                {
+                                    sh.Execute(entry.Value);
+                                }
+                            sh.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            sh.Rollback();
+                            throw ex;
+                        }
+
+                        conn.Close();
+                    }
+                }
+
+            }
+        }
+
+        public IRestResponse TestConnection()
+        {
+            var request = new RestRequest("", Method.GET);
+            request.AddHeader("Accept", "*/*");
+            IRestResponse response = wsClient.Execute(request);
+            return response;
+        }
+
+        public IRestResponse AddTable(string tableName)
+        {
+            var request = new RestRequest("AddTable/{tableName}", Method.GET);
+            request.AddUrlSegment("tableName", tableName);
+            request.AddHeader("Accept", "*/*");
+            IRestResponse response = wsClient.Execute(request);
+            return response;
+        }
+
+        public DataTable GetTables()
+        {
             using (SQLiteConnection conn = new SQLiteConnection(this.connString))
             {
                 using (SQLiteCommand cmd = new SQLiteCommand())
@@ -45,24 +99,9 @@ namespace SQLiteSyncCOMCsharp
 
                     SQLiteHelper sh = new SQLiteHelper(cmd);
 
-                    sh.BeginTransaction();
-
-                    try
-                    {
-                        foreach (KeyValuePair<string, string> entry in dbSchemaSorted)
-                            if (!entry.Key.StartsWith("00000"))
-                            {
-                                sh.Execute(entry.Value);
-                            }
-                        sh.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        sh.Rollback();
-                        throw ex;
-                    }
-
+                    DataTable tables = sh.Select("select tbl_Name from sqlite_master where type = 'table';");
                     conn.Close();
+                    return tables;
                 }
             }
         }
@@ -176,7 +215,7 @@ namespace SQLiteSyncCOMCsharp
 
                     request.AddParameter("application/json; charset=utf-8", inputObject.ToString(), ParameterType.RequestBody);
                     request.RequestFormat = DataFormat.Json;
-              
+
                     IRestResponse response = wsClient.Execute(request);
                     #endregion
 
@@ -288,7 +327,7 @@ namespace SQLiteSyncCOMCsharp
                                 }
 
                             sh.Commit();
-                      
+
                         }
                         catch (Exception ex)
                         {
@@ -302,7 +341,7 @@ namespace SQLiteSyncCOMCsharp
             }
         }
 
-        public void SendAndRecieveChanges(string subscriberId)
+        public void SendAndReceiveChanges(string subscriberId)
         {
             SendChanges(subscriberId);
             GetChangesFromServer(subscriberId);
