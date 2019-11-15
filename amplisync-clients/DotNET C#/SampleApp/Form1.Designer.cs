@@ -39,6 +39,12 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -50,7 +56,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(471, 14);
+            this.button1.Location = new System.Drawing.Point(577, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 23);
             this.button1.TabIndex = 0;
@@ -60,11 +66,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(186, 14);
+            this.button2.Location = new System.Drawing.Point(577, 41);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(167, 23);
+            this.button2.Size = new System.Drawing.Size(143, 23);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Send and Recieve";
+            this.button2.Text = "Synchronize";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -76,10 +82,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(13, 43);
+            this.tabControl1.Location = new System.Drawing.Point(13, 119);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(714, 460);
+            this.tabControl1.Size = new System.Drawing.Size(714, 384);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -88,7 +94,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(706, 434);
+            this.tabPage1.Size = new System.Drawing.Size(706, 358);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Actor";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -104,7 +110,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(700, 428);
+            this.dataGridView1.Size = new System.Drawing.Size(700, 352);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage2
@@ -113,7 +119,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(706, 434);
+            this.tabPage2.Size = new System.Drawing.Size(706, 358);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -129,7 +135,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(700, 428);
+            this.dataGridView2.Size = new System.Drawing.Size(700, 352);
             this.dataGridView2.TabIndex = 0;
             // 
             // tabPage3
@@ -137,7 +143,7 @@
             this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(706, 434);
+            this.tabPage3.Size = new System.Drawing.Size(706, 358);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Film";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -153,16 +159,17 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(706, 434);
+            this.dataGridView3.Size = new System.Drawing.Size(706, 358);
             this.dataGridView3.TabIndex = 0;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(83, 16);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(80, 20);
+            this.textBox1.Size = new System.Drawing.Size(306, 20);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "1";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -173,11 +180,70 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Subscriber";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(428, 14);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(143, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(428, 40);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(143, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Add Table";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Server";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(83, 43);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(306, 20);
+            this.textBox3.TabIndex = 7;
+            this.textBox3.Text = "http://demo.sqlite-sync.com:8081/SqliteSync/API3";
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Location of SQLiteDB";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(136, 75);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(584, 20);
+            this.textBox4.TabIndex = 10;
+            this.textBox4.Text = "unknown";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 515);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tabControl1);
@@ -211,6 +277,12 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

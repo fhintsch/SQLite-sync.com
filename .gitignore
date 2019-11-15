@@ -6,18 +6,21 @@ sync.properties
 .classpath
 .project
 .settings/
- 
+
 # Intellij
 .idea/
 *.iml
 *.iws
- 
+
 # Mac
 .DS_Store
- 
+
 # Maven
 log/
 target/
 amplisync-ws/lib
 amplisync-core/out
 amplisync-ws/out
+.vs/
+bin/
+obj/
